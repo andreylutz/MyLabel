@@ -1,0 +1,9 @@
+#box_contacts {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  svg {
+    cursor: pointer;
+  }
+}
