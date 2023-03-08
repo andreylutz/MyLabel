@@ -1,0 +1,65 @@
+#avatar-box {
+  color: white;
+  background-color: black;
+  height: 20%;
+}
+
+.main-name {
+  color:white;
+  font-size: 25px;
+  padding-top: 10%;
+  padding-left: 10%;
+  position:relative;
+  width: 90%;
+  margin:0 auto;
+}
+@keyframes noise-anim{
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+.main-name:after {
+  content:attr(data-text);
+  position:absolute;
+  padding-top: 10%;
+  padding-left: 10%;
+  left:2px;
+  text-shadow:-1px 0 red;
+  top:0;
+  color:white;
+  background:black;
+  overflow:hidden;
+  clip:rect(0,900px,0,0); 
+  animation:noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+.main-name:before {
+  content:attr(data-text);
+  position:absolute;
+  padding-top: 10%;
+  padding-left: 10%;
+  left:-2px;
+  text-shadow:1px 0 blue; 
+  top:0;
+  color:white;
+  background:black;
+  overflow:hidden;
+  clip:rect(0,900px,0,0); 
+  animation:noise-anim-2 3s infinite linear alternate-reverse;
+}
+
+#main-job {
+  color: rgb(132, 132, 132);
+  font-size: 15px;
+}
