@@ -6,7 +6,7 @@ import soundHover from "../../sound/jedai.mp3";
 
 const NavLink = ({ title = "Link" }) => {
   const [playClick] = useSound(suondClick, { volume: 0.3 });
-  const [playHover, { stopHover }] = useSound(soundHover, { volume: 0.3 });
+  const [playHover, { stopHover }] = useSound(soundHover, { volume: 0.1 });
 
   return (
     <div style={{ marginTop: "10%" }}>
