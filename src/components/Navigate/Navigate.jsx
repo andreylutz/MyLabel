@@ -5,6 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 // navigate
 import { Link } from "react-router-dom";
 
+// sound
+import useSound from "use-sound";
+import suondClick from "../../sound/click.mp3";
+import soundHover from "../../sound/jedai.mp3";
+
 // components
 import Avatar from "../Avatar/Avatar";
 import NavLink from "../NavLink/NavLink";
@@ -20,13 +25,23 @@ const navItems = [
 ];
 
 const Navigate = ({ title }) => {
+  const [playClick] = useSound(suondClick, { volume: 0.3 });
+  const [playHover, { stopHover }] = useSound(soundHover, { volume: 0.1 });
+
   return (
     <div id="navigate-box">
       <Link to={"/"}>
         <Avatar />
       </Link>
       {navItems.map((navItem) => (
-        <Link key={uuidv4()} to={navItem.path}>
+        <Link
+          className="link"
+          onClick={playClick}
+          onMouseEnter={() => playHover()}
+          onMouseLeave={() => stopHover()}
+          key={uuidv4()}
+          to={navItem.path}
+        >
           <NavLink title={navItem.title} />
         </Link>
       ))}

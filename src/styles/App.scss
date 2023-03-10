@@ -1,5 +1,10 @@
-#content {
+#box_content {
   z-index: 0;
   height: 100vh;
+}
+
+.content {
+  z-index: 1;
   color: white;
+  margin-left: 15%;
 }
